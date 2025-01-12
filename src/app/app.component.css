@@ -1,0 +1,15 @@
+button{
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*Contenedor para los botones*/
+.button-container{
+display: flex;
+justify-content: center;
+gap:10px;
+margin: 20px 0;
+}

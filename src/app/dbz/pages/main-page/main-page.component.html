@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <h1>Módulo DBZ</h1>
+
+  <app-add-personaje (onNuevoPersonaje)="agregarPersonaje($event)"></app-add-personaje>
+
+  <app-lista
+    [personajes]="personajes"
+    (onEliminarPersonaje)="eliminarPersonaje($event)"
+  ></app-lista>
+</div>

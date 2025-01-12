@@ -1,0 +1,51 @@
+<div class="container d-flex flex-column align-items-center mt-5">
+
+  ><div class="m-3 p-3 border">
+    <h1><strong>CENTROS DISPONIBLES</strong></h1>
+     <!-- Aquí mostramos los centros existentes-->
+    <div class="card m-2 p-3 border" *ngIf="listaCentros.length > 0">
+      <h3><strong>{{ centroActual.nombre }}</strong></h3>
+      <p><strong>Localidad: {{ centroActual.localidad }}</strong></p>
+      <p><strong>Familias profesionales: </strong></p>
+      <ul>
+        <li *ngFor="let familia of centroActual.familiasProfesionales">
+          {{familia}}
+        </li>
+      </ul>
+      <p><strong>Logo: </strong></p>
+      <div class="d-flex justify-content-center">
+        <img [src]="centroActual.logo" alt="Logo de {{ centroActual.nombre }}" width="200" height="200">
+      </div>
+    </div>
+
+    <!--Si se han eliminado todos los centros disponibles muestro mensaje-->
+    <h3 *ngIf="listaCentros.length === 0" class="text-danger">
+      No hay centros disponibles.
+    </h3>
+
+    <!-- Aquí muestro la lista de los centros que se han eliminado -->
+    <h1><strong>CENTROS ELIMINADOS</strong></h1>
+    <div *ngFor="let centro of this.listaCentrosEliminados" class="card m-2 p-3 border">
+      <h3><strong>{{ centro.nombre }}</strong></h3>
+      <p><strong>Localidad: </strong>{{ centro.localidad }}</p>
+      <p><strong>Familias profesionales: </strong></p>
+      <ul>
+        <li *ngFor="let familia of centro.familiasProfesionales">
+          {{ familia }}
+        </li>
+      </ul>
+      <p><strong>Logo: </strong></p>
+      <div class="d-flex justify-content-center">
+        <img [src]="centro.logo" alt="Logo de {{ centro.nombre }}" width="200" height="200">
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <button *ngIf="indiceCentroActual > 0" class="btn btn-primary me-2" (click)="centroAnterior()"> Anterior </button>
+      <button *ngIf="indiceCentroActual < listaCentros.length - 1" class="btn btn-primary" (click)="centroPosterior()"> Posterior </button>
+      <button *ngIf="listaCentros.length > 0" class="btn btn-danger" (click)="eliminarCentro()"> Eliminar </button>
+      <button *ngIf="listaCentrosEliminados.length > 0" class="btn btn-success" (click)="insertarCentro()"> Insertar </button>
+    </div>
+  </div>
+
+</div>

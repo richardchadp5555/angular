@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h3>Agregar Personaje</h3>
+  <form (ngSubmit)="agregar()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del Personaje</label>
+      <input
+        type="text"
+        id="nombre"
+        [(ngModel)]="nuevo.nombre"
+        class="form-control"
+        placeholder="Nombre del personaje"
+        name="nombre"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="poder" class="form-label">Poder del Personaje</label>
+      <input
+        type="number"
+        id="poder"
+        [(ngModel)]="nuevo.poder"
+        class="form-control"
+        placeholder="Poder del personaje"
+        name="poder"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+  </form>
+</div>
